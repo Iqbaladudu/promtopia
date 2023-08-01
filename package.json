@@ -2,6 +2,9 @@
   "name": "promtopia",
   "version": "0.1.0",
   "private": true,
+  "browser": {
+    "crypto": false,
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
