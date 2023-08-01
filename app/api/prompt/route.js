@@ -1,6 +1,8 @@
 import { connectToDB } from "@utils/database";
 import Prompt from "@models/prompt";
 
+export const runtime = 'edge';
+
 export const GET = async (request) => {
     try {
         await connectToDB();
