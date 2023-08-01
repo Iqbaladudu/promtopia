@@ -1,5 +1,7 @@
 import Feed from "@components/Feed"
 
+export const runtime = 'edge' // 'nodejs' (default) | 'edge'
+
 const Home = () => {
   return (
     <section className="w-full flex-center flex-col">
