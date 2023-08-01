@@ -6,7 +6,7 @@
     "crypto": false,
     "http": false,
     "querystring": false,
-    "https:" false
+    "https": false
   },
   "scripts": {
     "dev": "next dev",
