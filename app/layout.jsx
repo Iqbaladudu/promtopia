@@ -2,8 +2,6 @@ import Nav from "@components/Nav";
 import { Provider } from "@components/Provider";
 import "@styles/globals.css";
 
-export const runtime = 'edge' // 'nodejs' (default) | 'edge'
-
 export const metadata = {
     title: "Promptopia",
     description: "Discover & Share AI Prompts"
