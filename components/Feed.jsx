@@ -8,7 +8,7 @@ import { useTagModeStore } from "@store";
     const [tagMode, tagValue, setTagMode] = useTagModeStore((state) => [state.tagMode, state.tagValue, state.setTagMode]);
     console.log(tagMode)
     return (
-      <div className="mt-16 prompt_layout">
+      <div className="mt-16">
         {tagMode && (
           <div className="flex flex-row justify-between">
             <h1 className="font-bold">Filter by Tag <span className=" bg-primary-orange text-white p-1 rounded-lg">#{tagValue}</span> 
@@ -16,9 +16,11 @@ import { useTagModeStore } from "@store";
             <button className=" text-blue-950 font-bold" onClick={() => setTagMode(false)}>clear</button>
           </div>  
         )}
+        <div className="prompt_layout">
         {data.map((post) => (
           <PromptCard key={post._id} post={post}  handleTagClick={handleTagClick} />
         ) )}
+        </div>
       </div>
     )
   }
