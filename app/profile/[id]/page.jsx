@@ -8,20 +8,27 @@ import Profile from '@components/Profile';
 
 import React from 'react'
 
-const MyProfile = () => {
+export async function generateStaticParams() {
+  const posts = await fetch('/api/prompt').then((res) => res.json());
+
+  return posts.map((post) => {
+    id: post.creator?._id
+  })
+}
+
+const MyProfile = ({ params }) => {
   const {data: session} = useSession()
   const [posts, setPosts] = useState([])
   
   const router = useRouter();
 
-
-
-  console.log(posts)
+  const { id } = params
 
   useEffect(() => {
   const fetchPosts = async () => {
-    const response = await fetch(`/api/users/${session?.user.id}/posts`);
+    const response = await fetch(`/api/users/${id}/posts`);
     const data = await response.json();
+    console.log(data)
     setPosts(data)
   }
 
@@ -52,8 +59,8 @@ const MyProfile = () => {
 
   return (
   <Profile
-    name="My"
-    desc="Welcome to your personalized profile"
+    name={`${session?.user ? "My" : ""}`}
+    desc="Welcome to My Profile"
     data={posts}
     handleEdit={handleEdit}
     handleDelete={handleDelete}
